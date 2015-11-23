@@ -48,11 +48,12 @@
     "watch": "^0.14.0"
   },
   "scripts": {
-    "css": "cssnext src/base.css css/base.css",
-    "minify:css": "cssnext -c src/base.css css/base.min.css",
+    "css": "npm run copy:template && cssnext src/base.css css/base.css",
+    "minify:css": "npm run copy:template && cssnext -c src/base.css css/base.min.css",
     "serve": "http-server",
     "start": "npm run watch:css & npm run serve",
-    "watch:css": "watch 'npm run css && npm run minify:css' ./src"
+    "watch:css": "watch 'npm run css && npm run minify:css' ./src",
+    "copy:template": "cp src/template.css node_modules/basscss-defaults/index.css"
   },
   "repository": {
     "type": "git",
